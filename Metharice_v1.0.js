@@ -327,6 +327,7 @@ Map.add(infoPanel);
 Map.onClick(function(coords) {
   var lon = coords.lon;
   var lat = coords.lat;
+  var point = ee.Geometry.Point([lon, lat]);
   if (!aoiGeometry.contains(point, ee.ErrorMargin(1)).getInfo()) {
     infoPanel.clear();
     infoPanel.add(ui.Label('Point is outside the study area.'));
